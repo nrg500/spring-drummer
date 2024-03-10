@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class DrumPattern {
+
   @Id
   @GeneratedValue
   public Long id;

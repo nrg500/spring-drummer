@@ -12,12 +12,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class ConductorConfig {
 
+  private static final Logger LOG = LoggerFactory.getLogger(ConductorConfig.class);
   private final short bpm = 180;
   private final int MS_IN_MINUTE = 60_000;
-  private SocketHandler socketHandler;
-  private static final Logger LOG = LoggerFactory.getLogger(ConductorConfig.class);
+  private final SocketHandler socketHandler;
+
   public ConductorConfig(SocketHandler socketHandler) {
-  this.socketHandler = socketHandler;
+    this.socketHandler = socketHandler;
   }
 
   @Scheduled(fixedRate = 15, timeUnit = SECONDS)
@@ -26,8 +27,8 @@ public class ConductorConfig {
     int beatsPlayed = -1;
     long currentTimeMillis = System.currentTimeMillis();
     long nextBeatTime = currentTimeMillis + (MS_IN_MINUTE / bpm);
-    while(++beatsPlayed < 32) {
-      while(System.currentTimeMillis() < nextBeatTime){
+    while (++beatsPlayed < 32) {
+      while (System.currentTimeMillis() < nextBeatTime) {
         try {
           Thread.sleep(1);
         } catch (InterruptedException e) {

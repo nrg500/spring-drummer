@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class InstrumentsController {
 
   String[] instruments = {"ClHat-08", "Kick-08", "Flam-01"};
+
   @GetMapping()
   public String getInstrument() {
-    return instruments[(int)(Math.random() * instruments.length)];
+    return instruments[(int) (Math.random() * instruments.length)];
   }
 }

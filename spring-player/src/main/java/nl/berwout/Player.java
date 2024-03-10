@@ -18,8 +18,8 @@ public class Player {
   private URI websocketUri;
   @Value("${audioFolder}")
   private String audioFolder;
-  private ConductorRestClient conductorRestClient;
-  private DrumPatternRepository drumPatternRepository;
+  private final ConductorRestClient conductorRestClient;
+  private final DrumPatternRepository drumPatternRepository;
 
   public Player(ConductorRestClient conductorRestClient, DrumPatternRepository drumPatternRepository) {
     this.conductorRestClient = conductorRestClient;

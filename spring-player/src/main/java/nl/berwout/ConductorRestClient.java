@@ -10,7 +10,7 @@ public class ConductorRestClient {
 
   @Value("${instrument-url}")
   private URI instrumentUri;
-  private RestClient client = RestClient.create();
+  private final RestClient client = RestClient.create();
 
   public String getInstrument() {
     return client.get()

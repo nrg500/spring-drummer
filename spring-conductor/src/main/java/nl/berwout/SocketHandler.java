@@ -12,9 +12,8 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class SocketHandler extends TextWebSocketHandler {
 
-  ConcurrentHashMap<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
   private static final Logger LOG = LoggerFactory.getLogger(SocketHandler.class);
-
+  ConcurrentHashMap<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 
   public void broadcast(String s) {
     LOG.info("send to sessions: " + sessions.size());
