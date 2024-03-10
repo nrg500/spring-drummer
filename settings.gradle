@@ -1,1 +1,4 @@
 rootProject.name = 'spring-drummer'
+include 'spring-player'
+include 'spring-conductor'
+

@@ -1,0 +1,19 @@
+server:
+  port: 0
+
+ws-url: ws://localhost:8080/chat
+instrument-url: http://localhost:8080/instruments
+audioFolder: /Users/berwout/personal/spring-player-audio
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
